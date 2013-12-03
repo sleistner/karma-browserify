@@ -24,7 +24,8 @@
   "dependencies": {
     "browserify": "~2.36.0",
     "through": "~2.3.4",
-    "chokidar": "~0.6.2"
+    "chokidar": "~0.6.2",
+    "browserify-shim": "~2.0.9"
   },
   "peerDependencies": {
     "karma": ">=0.9"

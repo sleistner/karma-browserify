@@ -10,6 +10,7 @@ fs = require 'fs'
 browserify = require 'browserify'
 through = require 'through'
 chokidar = require 'chokidar'
+shim = require 'browserify-shim'
 
 # The dependency cache stores all browserify dependencies.
 depsCache = []
@@ -108,7 +109,12 @@ configuredBrowserify = (files, config) ->
     entries: files and [].concat files
     extensions: config.extension
     noParse: config.noParse
+
   bundle = browserify options
+
+  if config.shim
+    bundle = shim bundle, config.shim
+
   applyConfig bundle, config
   bundle
 
